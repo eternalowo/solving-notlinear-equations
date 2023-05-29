@@ -63,7 +63,7 @@ def bisections_method(func, root_segments, eps=1e-15):
                 xl = mid
             iter_nums += 1
         mid = (xl + xr) / 2
-        result.append((mid, iter_nums, segment))
+        result.append((round(mid), iter_nums, segment))
 
     return result
 
@@ -83,7 +83,7 @@ def newton_method(func, d_func, root_segments, eps=1e-15):
             x = root
             iter_nums += 1
         root = x - (func(x) / d_func(x))
-        result.append((root, iter_nums, segment))
+        result.append((round(root, 4), iter_nums, segment))
 
     return result
 
@@ -103,7 +103,7 @@ def fixed_point_iteration_method(func, d_func, root_segments, eps=1e-15):
             prev = cur
             iter_nums += 1
         cur = prev - mul * func(prev)
-        result.append((cur, iter_nums, segment))
+        result.append((round(cur), iter_nums, segment))
 
     return result
 
